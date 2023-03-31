@@ -28,7 +28,7 @@ export default {
     getApi() {
       let apiList = 'https://api.themoviedb.org./3/search/movie?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&query='
       if (store.search.length > 0) {
-        apiList += `${store.search}`;
+        apiList += `${store.search}&language=it-IT`;
       }
 
       axios.get(apiList)

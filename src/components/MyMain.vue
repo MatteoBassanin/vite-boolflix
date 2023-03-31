@@ -1,5 +1,6 @@
 <template>
-    <MyCard v-for="(card, index) in store.arrayApi" :title="card.original_title" :key="index"></MyCard>
+    <MyCard v-for="(card, index) in store.arrayApi" :title="card.title" :title_original="card.original_title"
+        :language="card.original_language" :rate="card.vote_average" :key="index"></MyCard>
 </template>
 
 
