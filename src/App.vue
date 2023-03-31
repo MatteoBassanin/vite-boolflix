@@ -26,11 +26,11 @@ export default {
   methods: {
 
     getApi() {
-      // if (store.search.length > 0) {
-      //   apiList += `${store.search}`;
-      // }
+      let apiList = 'https://api.themoviedb.org./3/search/movie?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&query='
+      if (store.search.length > 0) {
+        apiList += `${store.search}`;
+      }
 
-      let apiList = 'https://api.themoviedb.org./3/search/movie?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&query=ciclone'
       axios.get(apiList)
         .then(response => {
           this.store.arrayApi = response.data.results,
