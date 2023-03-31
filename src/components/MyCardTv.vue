@@ -1,5 +1,5 @@
 <template>
-    <div class="card_wrapper_movies">
+    <div class="card_wrapper_Tv_series">
         <h1>{{ title }}</h1>
         <h2>{{ title_original }}</h2>
         <img v-if="(language == 'it')"
@@ -13,27 +13,25 @@
     </div>
 </template>
 
-<script>
-import { store } from '../store.js';
 
+<script>
+import { store } from '../store';
 
 export default {
-    name: "MyCard",
+    name: "MyCardtv",
     props: {
         title: String,
         title_original: String,
         language: String,
         rate: String,
     },
-
-    Data() {
+    data() {
         return {
             store
         }
     }
 }
 </script>
-
 
 <style scoped>
 img {

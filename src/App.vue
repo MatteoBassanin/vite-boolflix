@@ -25,17 +25,30 @@ export default {
   },
   methods: {
 
+
+
     getApi() {
+
       let apiList = 'https://api.themoviedb.org./3/search/movie?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&query='
+
+      let arrayTvSeries = 'https://api.themoviedb.org./3/search/tv?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&query='
+
       if (store.search.length > 0) {
         apiList += `${store.search}&language=it-IT`;
+        arrayTvSeries += `${store.search}&language=it-IT`;
       }
 
       axios.get(apiList)
         .then(response => {
           this.store.arrayApi = response.data.results,
-            console.log(this.arrayApi)
-        })
+            console.log(store.arrayApi)
+        }),
+        axios.get(arrayTvSeries)
+          .then(response => {
+            this.store.arrayTvSeries = response.data.results,
+              console.log(store.arrayTvSeries)
+          })
+
     }
 
   },
@@ -43,6 +56,7 @@ export default {
 
   created() {
     this.getApi()
+
   }
 }
 </script>
