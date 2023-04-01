@@ -10,7 +10,9 @@
             src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.adesivi4x4.it%2F425-large_default%2Fbandiera-inglese.jpg&f=1&nofb=1&ipt=d104e14ecefe73b31341418a0fee7807a79cfb160498a94037f42ed7db273d47&ipo=images"
             alt="">
         <h3 v-else>{{ language }}</h3>
-        <h4>{{ rate }}</h4>
+        <h4><i v-for="index in Math.ceil(rate / 2)" class="fa-solid fa-star"></i> <i
+                v-for="index in 5 - (Math.ceil(rate / 2))" class="fa-regular fa-star"></i>
+        </h4>
     </div>
 </template>
 

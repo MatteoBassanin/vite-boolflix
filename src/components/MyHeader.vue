@@ -3,7 +3,8 @@
         <h1>BOOLFIX</h1>
         <div>
             <input type="text" placeholder="cerca un film" v-model="store.search">
-            <div class="button" @click="$emit('searchInputBar')"><a href="#">cerca</a></div>
+            <div class="button" @click="$emit('searchInputBar')"><a href=" #">cerca</a>
+            </div>
         </div>
     </div>
 </template>
