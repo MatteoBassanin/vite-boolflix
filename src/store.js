@@ -6,6 +6,7 @@ export const store = reactive(
     {
         arrayApi: [],
         arrayTvSeries: [],
-        search: ""
+        search: "",
+        apiImage: "https://image.tmdb.org/t/p/w342/",
     }
 );
