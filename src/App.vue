@@ -27,15 +27,16 @@ export default {
   },
   methods: {
 
+
     getApi() {
 
       let apiList = 'https://api.themoviedb.org./3/search/movie?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&query='
 
-      let arrayTvSeries = 'https://api.themoviedb.org./3/search/tv?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&query='
+      let apiListTv = 'https://api.themoviedb.org./3/search/tv?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&query='
 
       if (store.search.length > 0) {
         apiList += `${store.search}&language=it-IT`;
-        arrayTvSeries += `${store.search}&language=it-IT`;
+        apiListTv += `${store.search}&language=it-IT`;
       }
 
       axios.get(apiList)
@@ -43,11 +44,14 @@ export default {
           this.store.arrayApi = response.data.results,
             console.log(store.arrayApi)
         }),
-        axios.get(arrayTvSeries)
+        axios.get(apiListTv)
           .then(response => {
             this.store.arrayTvSeries = response.data.results,
               console.log(store.arrayTvSeries)
           })
+
+
+
 
     }
 
