@@ -58,6 +58,12 @@ export default {
 
 
 <style scoped>
+p {
+    height: 20ch;
+    overflow: auto;
+
+}
+
 .language_img {
     width: 50px;
 }

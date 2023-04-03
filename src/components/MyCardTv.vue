@@ -53,6 +53,10 @@ export default {
 </script>
 
 <style scoped>
+p {
+    font-size: 14px;
+}
+
 .language_img {
     width: 50px;
 }
