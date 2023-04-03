@@ -3,7 +3,10 @@
         <div class="flip_card_wrapper">
             <div class="card_wrapper_Tv_series">
                 <div class="card_front">
-                    <img class="movie_img" :src="poster" alt="">
+                    <!-- <img v-if="`${store.apiImage}${card.backdrop_path}` == `${store.apiImage}${null}`"
+                        src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fc2.staticflickr.com%2F8%2F7154%2F6547319943_442c6509bb_b.jpg&f=1&nofb=1&ipt=11acaa57743aef9d6f4cb75622aa3d124a7c5d1f54e88ec0c65f99310ab09b13&ipo=images"
+                        alt=""> -->
+                    <img class="movie_img" :src="poster" alt="" @error="setAltImg">
                 </div>
                 <div class="card_back">
                     <h1>{{ title }}</h1>
@@ -57,6 +60,11 @@ export default {
     data() {
         return {
             store
+        }
+    },
+    methods: {
+        setAltImg(event) {
+            event.target.src = "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fc2.staticflickr.com%2F8%2F7154%2F6547319943_442c6509bb_b.jpg&f=1&nofb=1&ipt=11acaa57743aef9d6f4cb75622aa3d124a7c5d1f54e88ec0c65f99310ab09b13&ipo=images"
         }
     }
 }
