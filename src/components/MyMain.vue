@@ -14,7 +14,7 @@
         </ul>
 
     </div>
-    <div v-else>
+    <div v-else class="no_results">
         <h1>Nessuna ricerca effetuata</h1>
     </div>
 </template>
@@ -48,5 +48,12 @@ export default {
 <style scoped>
 h1 {
     color: red;
+}
+
+.no_results {
+    height: 100vh;
+    width: 100vw;
+    background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp3390757.jpg&f=1&nofb=1&ipt=af26c301c5b9c31e1c3ba2b249ca6c2aadccb992ad649e2a2bd09ea7cf1c4505&ipo=images");
+    ;
 }
 </style>
