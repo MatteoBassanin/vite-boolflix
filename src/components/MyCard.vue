@@ -59,7 +59,7 @@ export default {
 
 <style scoped>
 p {
-    height: 20ch;
+    height: 15ch;
     overflow: auto;
 
 }

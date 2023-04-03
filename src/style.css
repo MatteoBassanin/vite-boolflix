@@ -4,6 +4,22 @@
   box-sizing: border-box;
 }
 
+body {
+  background-color: #434343;
+}
+
+ul {
+  margin: auto;
+}
+
+li {
+  list-style: none;
+  margin: 40px 0;
+}
+
+i {
+  color: orange;
+}
 
 /* utilities */
 
