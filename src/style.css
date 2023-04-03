@@ -5,7 +5,9 @@
 }
 
 body {
-  background-color: #434343;
+  /* background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwallpapercave.com%2Fwp%2Fwp3390757.jpg&f=1&nofb=1&ipt=af26c301c5b9c31e1c3ba2b249ca6c2aadccb992ad649e2a2bd09ea7cf1c4505&ipo=images"); */
+
+  background-color: rgb(72, 72, 86);
 }
 
 ul {

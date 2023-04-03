@@ -2,7 +2,7 @@
     <div class="container_header justify_between d_flex align_center">
         <h1>BOOLFIX</h1>
         <div>
-            <input type="text" placeholder="cerca un film" v-model="store.search">
+            <input @keyup.enter="$emit('searchInputBar')" type=" text" placeholder="cerca un film" v-model="store.search">
             <div class="button" @click="$emit('searchInputBar')"><a href=" #">cerca</a>
             </div>
         </div>
@@ -29,7 +29,9 @@ export default {
 
 <style scoped>
 .container_header {
-    background-color: black;
+    background-image: url("https://www.shutterstock.com/image-photo/three-cats-dark-glasses-on-260nw-2024364104.jpg");
+    background-position: center;
+    /* background-color: black; */
     height: 100px;
 }
 
