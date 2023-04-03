@@ -3,9 +3,6 @@
         <div class="flip_card_wrapper">
             <div class="card_wrapper_Tv_series">
                 <div class="card_front">
-                    <!-- <img v-if="`${store.apiImage}${card.backdrop_path}` == `${store.apiImage}${null}`"
-                        src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fc2.staticflickr.com%2F8%2F7154%2F6547319943_442c6509bb_b.jpg&f=1&nofb=1&ipt=11acaa57743aef9d6f4cb75622aa3d124a7c5d1f54e88ec0c65f99310ab09b13&ipo=images"
-                        alt=""> -->
                     <img class="movie_img" :src="poster" alt="" @error="setAltImg">
                 </div>
                 <div class="card_back">
@@ -26,21 +23,6 @@
             </div>
         </div>
     </li>
-    <!-- <div class="card_wrapper_Tv_series">
-        <h1>{{ title }}</h1>
-        <h2>{{ title_original }}</h2>
-        <img class="movie_img" :src="poster" alt="">
-        <img class="language_img" v-if="(language == 'it')"
-            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.vexels.com%2Fmedia%2Fusers%2F3%2F164330%2Fisolated%2Fpreview%2F66d81ab725414fff42aeefdf5fc79aa8-italy-flag-language-icon-by-vexels.png&f=1&nofb=1&ipt=b47237050c7e15801ac26188cbf154042c70671ecfcea723caa8842ba1c3d840&ipo=images"
-            alt="">
-        <img class="language_img" v-else-if="(language == 'en')"
-            src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.adesivi4x4.it%2F425-large_default%2Fbandiera-inglese.jpg&f=1&nofb=1&ipt=d104e14ecefe73b31341418a0fee7807a79cfb160498a94037f42ed7db273d47&ipo=images"
-            alt="">
-        <h3 v-else>{{ language }}</h3>
-        <h4><i v-for="index in Math.ceil(rate / 2)" class="fa-solid fa-star"></i> <i
-                v-for="index in 5 - (Math.ceil(rate / 2))" class="fa-regular fa-star"></i>
-        </h4>
-    </div> -->
 </template>
 
 
@@ -106,8 +88,6 @@ export default {
 .card_front,
 .card_back {
     border: 1px solid black;
-    /* width: 342px;
-    height: 192px; */
     position: absolute;
     width: 100%;
     height: 100%;
