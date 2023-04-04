@@ -1,13 +1,14 @@
 <template>
-    <div v-if="(store.arrayApi != '') || (store.arrayTvSeries != '')" class="">
+    <div v-if="(store.arrayApi != '') || (store.arrayTvSeries != '')" class="big_container">
         <h1 v-if="store.arrayApi != ''">Film trovati</h1>
-        <ul class="d_flex flex_wrap justify_between">
+        <ul class="d_flex flex_wrap ">
             <MyCard v-for="(card, index) in store.arrayApi" :title="card.title" :title_original="card.original_title"
                 :description="card.overview" :language="card.original_language" :rate="card.vote_average"
-                :poster="`${store.apiImage}${card.backdrop_path}`" :key="index"></MyCard>
+                :poster="`${store.apiImage}${card.backdrop_path}`" :key="index">
+            </MyCard>
         </ul>
         <h1 v-if="store.arrayTvSeries != ''">Serie Tv trovate</h1>
-        <ul class="d_flex flex_wrap justify_between">
+        <ul class="d_flex flex_wrap ">
             <MyCardTv v-for="(card, index) in store.arrayTvSeries" :title="card.name" :title_original="card.original_name"
                 :description="card.overview" :language="card.original_language" :rate="card.vote_average"
                 :poster="`${store.apiImage}${card.backdrop_path}`" :key="index"></MyCardTv>

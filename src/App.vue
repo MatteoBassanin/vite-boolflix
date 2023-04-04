@@ -28,30 +28,51 @@ export default {
   methods: {
 
 
+
     getApi() {
 
-      let apiList = 'https://api.themoviedb.org./3/search/movie?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&query='
+      this.getMovies(),
+        this.getTvSeries(),
+        store.search = ""
 
-      let apiListTv = 'https://api.themoviedb.org./3/search/tv?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&query='
+    },
+
+    getMovies() {
+      let apiList = 'https://api.themoviedb.org./3/search/movie?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&query='
 
       if (store.search.length > 0) {
         apiList += `${store.search}&language=it-IT`;
-        apiListTv += `${store.search}&language=it-IT`;
       }
 
       axios.get(apiList)
         .then(response => {
           this.store.arrayApi = response.data.results,
             console.log(store.arrayApi)
-        }),
-        axios.get(apiListTv)
-          .then(response => {
-            this.store.arrayTvSeries = response.data.results,
-              console.log(store.arrayTvSeries)
-          })
+        })
+    },
 
+    getTvSeries() {
+      let apiListTv = 'https://api.themoviedb.org./3/search/tv?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&query='
 
+      if (store.search.length > 0) {
+        apiListTv += `${store.search}&language=it-IT`;
+      }
 
+      axios.get(apiListTv)
+        .then(response => {
+          this.store.arrayTvSeries = response.data.results,
+            console.log(store.arrayTvSeries)
+        })
+    },
+
+    getGenre() {
+      let apiGenre = 'https://api.themoviedb.org./3/genre/movie/list?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&query=&language=it-IT'
+
+      axios.get(apiGenre)
+        .then(response => {
+          this.store.arrayGenre = response.data.results,
+            console.log(store.arrayGenre)
+        })
 
     }
 
@@ -60,8 +81,8 @@ export default {
 
   created() {
 
-
-    this.getApi()
+    this.getApi(),
+      this.getGenre()
 
   }
 }

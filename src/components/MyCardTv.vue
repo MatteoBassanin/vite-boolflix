@@ -36,7 +36,7 @@ export default {
         title: String,
         title_original: String,
         language: String,
-        rate: String,
+        rate: Number,
         poster: String,
         description: String,
     },
@@ -53,61 +53,4 @@ export default {
 }
 </script>
 
-<style scoped>
-p {
-    font-size: 14px;
-}
-
-.language_img {
-    width: 50px;
-}
-
-.movie_img {
-    width: 500px;
-    height: 300px;
-
-}
-
-.card_wrapper_Tv_series {
-
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-}
-
-.card_front {
-    background-color: #bbb;
-    color: black;
-}
-
-.card_back {
-    background-color: black;
-    color: white;
-    transform: rotateY(180deg);
-}
-
-.card_front,
-.card_back {
-    border: 1px solid black;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-
-.flip_card_wrapper {
-    background-color: transparent;
-    width: 500px;
-    height: 300px;
-    perspective: 1000px;
-}
-
-.flip_card_wrapper:hover .card_wrapper_Tv_series {
-    transform: rotateY(180deg);
-}
-</style>
+<style scoped></style>

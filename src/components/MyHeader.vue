@@ -15,7 +15,7 @@ import { store } from '../store.js';
 
 export default {
     name: 'MyHeader',
-
+    emits: ['searchInputBar'],
 
 
     data() {
