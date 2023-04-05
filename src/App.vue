@@ -88,6 +88,7 @@ export default {
 
     filteredMovie() {
       this.store.arrayTvSeries = [];
+      this.store.arrayApi = [];
       let filteredMovie = `https://api.themoviedb.org/3/discover/movie?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&language=it_IT&with_genres=${store.chosenGenre}`
 
       axios.get(filteredMovie)
@@ -97,6 +98,7 @@ export default {
     },
 
     filteredTv() {
+      this.store.arrayTvSeries = [];
       this.store.arrayApi = [];
 
       let filteredTv = `https://api.themoviedb.org/3/discover/tv?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&language=it_IT&with_genres=${store.chosenGenre}`
