@@ -1,5 +1,5 @@
 <template>
-  <MyHeader @searchInputBar="getApi" @filtered="filteredMovie"></MyHeader>
+  <MyHeader @searchInputBar="getApi" @filtered="filteredMovie" @filterTv="filteredTv"></MyHeader>
   <MyMain></MyMain>
   <div></div>
 </template>
@@ -71,43 +71,40 @@ export default {
       let apiGenre = 'https://api.themoviedb.org./3/genre/movie/list?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&query=&language=it-IT'
       let tvGenre = 'https://api.themoviedb.org./3/genre/tv/list?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&query=&language=it-IT'
 
+
       axios.get(apiGenre)
         .then(response => {
-          this.store.arrayGenre = response.data.genres
-        })
-
-      axios.get(tvGenre)
-        .then(response => {
-          this.store.arrayGenre.push(response.data.genres)
-        })
-
-      console.log(`questa è cosa contiene ${store.arrayGenre}`)
+          this.store.arrayGenre = response.data.genres;
+          this.mergeGenre();
+        }),
+        axios.get(tvGenre)
+          .then(response => {
+            this.store.arrayTvGenre.push(response.data.genres);
+            this.mergeGenre();
+          })
 
     },
 
+
+
+
     filteredMovie() {
-
-
-
-      let filteredMovie = `https://api.themoviedb.org/3/discover/movie?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&language=it_IT&with_genres=${store.chosenGenre}&query=${store.chosenGenre}`
-      // let filteredMovie = `https://api.themoviedb.org/4/list/143355?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&with_genres=${store.chosenGenre}`
+      let filteredMovie = `https://api.themoviedb.org/3/discover/movie?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&language=it_IT&with_genres=${store.chosenGenre}`
 
       axios.get(filteredMovie)
         .then(response => {
           this.store.arrayApi = response.data.results
+        })
+    },
 
-        }),
+    filteredTv() {
+      let filteredTv = `https://api.themoviedb.org/3/discover/tv?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&language=it_IT&with_genres=${store.chosenGenre}`
 
-
-
-        axios.get(filteredMovie)
-          .then(response => {
-            this.store.apiListTv = response.data.results
-
-          })
+      axios.get(filteredTv)
+        .then(response => {
+          this.store.apiListTv = response.data.results
+        })
     }
-
-
   },
 
 

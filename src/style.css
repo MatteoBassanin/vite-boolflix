@@ -27,7 +27,7 @@ i {
 /* card style */
 
 .card_back p {
-  height: 15ch;
+  height: 35ch;
   overflow: auto;
 
 }
@@ -45,9 +45,10 @@ i {
 .flip_card_wrapper {
   background-color: transparent;
   width: 400px;
-  height: 300px;
+  height: 500px;
   perspective: 1000px;
-  margin: 30px;
+  margin: auto;
+
 }
 
 .card_wrapper_movies,

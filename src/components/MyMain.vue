@@ -1,7 +1,7 @@
 <template>
     <div v-if="(store.arrayApi != '') || (store.arrayTvSeries != '')" class="big_container">
         <h1 v-if="store.arrayApi != ''">Film trovati</h1>
-        <ul class="d_flex flex_wrap ">
+        <ul class="d_flex flex_wrap justify_between">
             <MyCard v-for="(card, index) in store.arrayApi" :title="card.title" :title_original="card.original_title"
                 :description="card.overview" :language="card.original_language" :rate="card.vote_average"
                 :poster="`${store.apiImage}${card.poster_path}`" :key="index">
