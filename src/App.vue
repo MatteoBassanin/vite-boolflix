@@ -1,5 +1,5 @@
 <template>
-  <MyHeader @searchInputBar="getApi"></MyHeader>
+  <MyHeader @searchInputBar="getApi" @filtered="filteredMovie"></MyHeader>
   <MyMain></MyMain>
   <div></div>
 </template>
@@ -40,9 +40,11 @@ export default {
     getMovies() {
       let apiList = 'https://api.themoviedb.org./3/search/movie?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&query='
 
+
       if (store.search.length > 0) {
         apiList += `${store.search}&language=it-IT`;
       }
+
 
       axios.get(apiList)
         .then(response => {
@@ -70,11 +72,27 @@ export default {
 
       axios.get(apiGenre)
         .then(response => {
-          this.store.arrayGenre = response.data.results,
-            console.log(store.arrayGenre)
+          this.store.arrayGenre = response.data.genres
+            ,
+            console.log(response)
         })
 
+    },
+
+    filteredMovie() {
+
+
+
+      // let filteredMovie = `https://api.themoviedb.org/3/discover/movie?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&language=it_IT&genre_ids=${store.chosenGenre}&query=${store.chosenGenre}`
+      let filteredMovie = `https://api.themoviedb.org/4/list/143355?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&with_genres=${store.chosenGenre}`
+
+      axios.get(filteredMovie)
+        .then(response => {
+          this.store.arrayApi = response.data.results,
+            console.log(store.arrayApi)
+        })
     }
+
 
   },
 

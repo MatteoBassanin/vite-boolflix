@@ -19,6 +19,7 @@
                     <h4><i v-for="index in Math.ceil(rate / 2)" class="fa-solid fa-star"></i> <i
                             v-for="index in 5 - (Math.ceil(rate / 2))" class="fa-regular fa-star"></i>
                     </h4>
+                    <h5> {{ genre }}</h5>
                     <p>{{ description }}</p>
                 </div>
             </div>
@@ -28,6 +29,7 @@
 </template>
 
 <script>
+import { generate } from '@vue/compiler-core';
 import { store } from '../store.js';
 
 
@@ -39,7 +41,8 @@ export default {
         language: String,
         rate: Number,
         poster: String,
-        description: String
+        description: String,
+        genre: Number
     },
 
     Data() {

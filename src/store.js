@@ -8,6 +8,7 @@ export const store = reactive(
         arrayTvSeries: [],
         arrayGenre: [],
         search: "",
+        chosenGenre: "",
         apiImage: "https://image.tmdb.org/t/p/w500/",
     }
 );

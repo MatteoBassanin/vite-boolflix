@@ -1,6 +1,10 @@
 <template>
     <div class="container_header justify_between d_flex align_center">
-        <h1>BOOLFIX</h1>
+        <h1>TOOCOOLFIX</h1>
+        <select name="" id="" v-model="store.chosenGenre" @change="$emit('filtered')">
+            <option v-for="(element, index) in store.arrayGenre" :key="index" :value="element.id">{{
+                element.name }}</option>
+        </select>
         <div>
             <input @keyup.enter="$emit('searchInputBar')" type=" text" placeholder="cerca un film" v-model="store.search">
             <div class="button" @click="$emit('searchInputBar')"><a href=" #">cerca</a>
@@ -11,6 +15,8 @@
 
 <script>
 import { store } from '../store.js';
+import MyCard from './MyCard.vue';
+import MyMain from './MyMain.vue';
 
 
 export default {
@@ -23,6 +29,16 @@ export default {
             store
         }
     },
+    //     methods: {
+    //         filterMovies() {
+    //             if (store.arrayApi.genre_ids == value) {
+    //                 this.getApi()
+    //             }
+    //         }
+    //     },
+    //     computed() {
+    //         console.log(this.chosenGenre)
+    //     }
 }
 
 </script>
