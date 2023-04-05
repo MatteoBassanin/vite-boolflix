@@ -69,13 +69,19 @@ export default {
 
     getGenre() {
       let apiGenre = 'https://api.themoviedb.org./3/genre/movie/list?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&query=&language=it-IT'
+      let tvGenre = 'https://api.themoviedb.org./3/genre/tv/list?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&query=&language=it-IT'
 
       axios.get(apiGenre)
         .then(response => {
           this.store.arrayGenre = response.data.genres
-            ,
-            console.log(response)
         })
+
+      axios.get(tvGenre)
+        .then(response => {
+          this.store.arrayGenre.push(response.data.genres)
+        })
+
+      console.log(`questa è cosa contiene ${store.arrayGenre}`)
 
     },
 
@@ -83,14 +89,22 @@ export default {
 
 
 
-      // let filteredMovie = `https://api.themoviedb.org/3/discover/movie?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&language=it_IT&genre_ids=${store.chosenGenre}&query=${store.chosenGenre}`
-      let filteredMovie = `https://api.themoviedb.org/4/list/143355?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&with_genres=${store.chosenGenre}`
+      let filteredMovie = `https://api.themoviedb.org/3/discover/movie?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&language=it_IT&with_genres=${store.chosenGenre}&query=${store.chosenGenre}`
+      // let filteredMovie = `https://api.themoviedb.org/4/list/143355?api_key=176dfdb4437f9eac94dba4e2cbb2ef2d&with_genres=${store.chosenGenre}`
 
       axios.get(filteredMovie)
         .then(response => {
-          this.store.arrayApi = response.data.results,
-            console.log(store.arrayApi)
-        })
+          this.store.arrayApi = response.data.results
+
+        }),
+
+
+
+        axios.get(filteredMovie)
+          .then(response => {
+            this.store.apiListTv = response.data.results
+
+          })
     }
 
 

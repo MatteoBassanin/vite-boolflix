@@ -39,6 +39,7 @@ export default {
         rate: Number,
         poster: String,
         description: String,
+        genre: Number
     },
     data() {
         return {
