@@ -75,12 +75,10 @@ export default {
       axios.get(apiGenre)
         .then(response => {
           this.store.arrayGenre = response.data.genres;
-          this.mergeGenre();
         }),
         axios.get(tvGenre)
           .then(response => {
             this.store.arrayTvGenre.push(response.data.genres);
-            this.mergeGenre();
           })
 
     },
